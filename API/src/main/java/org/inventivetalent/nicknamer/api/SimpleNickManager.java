@@ -129,7 +129,8 @@ public class SimpleNickManager implements NickManager {
 				Object dimensionManagerKey;
 				switch (player.getWorld().getEnvironment()) {
 					case NETHER:
-						dimensionManagerKey = DimensionManager.getDeclaredField("NETHER").get(null);
+						// yeah so Minecraft randomly decided to but THE_ infront of the nether field for some reason, so here's a quick bug fix so you can change nicknames while in the new nether -Aduhkiss
+						dimensionManagerKey = DimensionManager.getDeclaredField("THE_NETHER").get(null);
 						break;
 					case THE_END:
 						dimensionManagerKey = DimensionManager.getDeclaredField("THE_END").get(null);
